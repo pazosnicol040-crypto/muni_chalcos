@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Municipalidad Distrital de Chalcos</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:#f4f8fb;
+}
+
+/* ================= ENCABEZADO ================= */
+header{
+    background:#0A3D91;
+    color:white;
+    display:flex;
+    align-items:center;
+    padding:15px 60px;
+}
+
+.logo{
+    background:white;
+    padding:5px;
+    border-radius:8px;
+    margin-right:20px;
+}
+
+.logo img{
+    height:70px;
+}
+
+.info-header h1{
+    margin:0;
+    font-size:26px;
+}
+
+.frase{
+    font-style:italic;
+    color:#FFD700;
+    margin-top:5px;
+}
+/* NUEVO DISEÑO AUTORIDADES */
+.autoridades-contenedor{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.autoridad-card{
+    width:350px;
+    text-align:center;
+}
+
+.autoridad-card img{
+    width:100%;
+    height:320px;
+    object-fit:contain;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    margin-bottom:20px;
+}
+/* ================= MENÚ ================= */
+nav{
+    background:#145DA0;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:rgba(255,255,255,0.25);
+}
+
+nav a.activo{
+    background:white;
+    color:#0A3D91;
+}
+
+/* ================= SECCIONES ================= */
+.seccion{
+    display:none;
+    padding:60px 80px;
+    min-height:400px;
+}
+
+.seccion h2{
+    color:#0A3D91;
+    text-align:center;
+    margin-bottom:50px;
+}
+
+/* ================= SLIDER ================= */
+.slider{
+    width:100%;
+    height:450px;
+    overflow:hidden;
+}
+
+.slides{
+    display:flex;
+    width:400%;
+    animation: slide 24s infinite;
+}
+
+.slides img{
+    width:100%;
+    height:450px;
+    object-fit:contain;
+}
+
+@keyframes slide{
+    0%{margin-left:0;}
+    25%{margin-left:-100%;}
+    50%{margin-left:-200%;}
+    75%{margin-left:-300%;}
+    100%{margin-left:0;}
+}
+
+/* ================= NOSOTROS ================= */
+.nosotros-container{
+    display:flex;
+    gap:50px;
+}
+
+.nosotros-imagenes{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.nosotros-imagenes img{
+    width:100%;
+    max-width:400px;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.nosotros-imagenes img:hover{
+    transform:scale(1.05);
+}
+
+.nosotros-info{
+    flex:2;
+}
+
+/* ================= AUTORIDADES ================= */
+.autoridad-bloque{
+    display:flex;
+    flex-direction:column;   /* imagen arriba, texto abajo */
+    align-items:center;
+    margin-bottom:70px;
+    text-align:center;
+}
+
+.autoridad-bloque img{
+    width:220px;          /* MÁS PEQUEÑA */
+    height:auto;
+    object-fit:contain;   /* NO RECORTA */
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    margin-bottom:20px;
+}
+.img-consejo{
+    width: 520px;
+}
+
+.autoridad-info{
+    width:60%;
+    background:#ffffff;
+    padding:25px;
+    border-top:6px solid #145DA0;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+}
+
+.autoridad-info h3{
+    color:#145DA0;
+    margin-top:0;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#0A3D91;
+    color:white;
+    height:270px;
+}
+
+.footer-container{
+    display:flex;
+    height:100%;
+}
+
+.footer-left img{
+    height:100%;
+}
+
+.footer-right{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-end;
+    padding-right:60px;
+    gap:12px;
+    font-weight:bold;
+    text-align:right;
+}
+/* Portal y Libro en encabezado */
+.header-links{
+    margin-left:auto;
+    display:flex;
+    gap:20px;
+}
+
+.header-btn{
+    background:white;
+    padding:10px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.header-btn img{
+    width:85px;   /* más grande */
+    height:auto;
+}
+
+.header-btn:hover{
+    transform:scale(1.08);
+}
+/* ================= NOTICIAS ================= */
+
+.noticias-contenedor{
+    display:flex;
+    justify-content:center;
+}
+
+.noticia-card{
+    width:350px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.noticia-card:hover{
+    transform:translateY(-6px);
+}
+
+.noticia-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.noticia-info{
+    padding:20px;
+    text-align:center;
+}
+
+.noticia-info h3{
+    color:#145DA0;
+    margin-top:0;
+}
+
+.noticia-info p{
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.noticia-info a{
+    display:inline-block;
+    padding:8px 15px;
+    background:#145DA0;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+/* SECCIÓN NOTICIAS */
+
+.contenedor-noticias{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.noticia-card{
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.noticia-card:hover{
+    background: #eaf3ff;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.noticia-card:hover{
+    transform: translateY(-5px);
+}
+
+.noticia-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.noticia-info{
+    padding: 15px;
+}
+
+.noticia-info h3{
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #003366;
+}
+
+.noticia-info p{
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.noticia-info a{
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #003366;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.noticia-info a:hover{
+    background-color: #0055aa;
+}
+
+/* Responsive */
+
+@media(max-width: 900px){
+    .contenedor-noticias{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px){
+    .contenedor-noticias{
+        grid-template-columns: 1fr;
+    }
+}
+/* ================= COMUNICADOS ================= */
+
+.comunicados-seccion{
+    margin-top: 60px;
+}
+
+.subtitulo-noticias{
+    text-align: center;
+    margin-bottom: 25px;
+    color: #003366;
+    font-size: 24px;
+}
+
+.contenedor-comunicados{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.comunicado-card{
+    background: #f4f6f9;
+    padding: 20px;
+    border-left: 5px solid #003366;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.comunicado-card:hover{
+    background: #e9eef5;
+    transform: translateY(-3px);
+}
+
+.comunicado-card h4{
+    margin-bottom: 10px;
+    color: #003366;
+}
+
+.comunicado-card p{
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.comunicado-card a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #003366;
+}
+
+.comunicado-card a:hover{
+    text-decoration: underline;
+}
+
+/* Responsive */
+
+@media(max-width: 900px){
+    .contenedor-comunicados{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px){
+    .contenedor-comunicados{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* TARJETAS MISION VISION VALORES */
+
+.mvv-container{
+display:flex;
+justify-content:center;
+align-items:stretch;
+gap:25px;
+margin-top:40px;
+flex-wrap:nowrap;
+width:100%;
+}
+.mvv-card{
+background:#ffffff;
+width:30%;
+min-width:250px;
+padding:20px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+transition:all 0.3s ease;
+}
+
+.mvv-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+.mvv-card:hover{
+transform:scale(1.05);
+background:#e8f3ff;
+box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+.mvv-card h3{
+margin-bottom:10px;
+color:#0b5394;
+}
+/* ================= CONTACTOS ================= */
+
+.contactos-container{
+display:flex;
+gap:40px;
+margin-top:40px;
+align-items:center;
+}
+
+.contacto-info{
+flex:1;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+
+.contacto-info h3{
+color:#0A3D91;
+margin-bottom:20px;
+}
+
+.contacto-info p{
+margin-bottom:12px;
+font-size:16px;
+}
+
+.mapa{
+flex:1;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+/* TARJETAS CONTACTOS */
+
+.servicios-contactos{
+display:flex;
+justify-content:center;
+gap:30px;
+margin:30px 0;
+flex-wrap:wrap;
+}
+
+.card-servicio{
+width:260px;
+background:white;
+border-radius:10px;
+text-align:center;
+padding:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card-servicio img{
+width:100%;
+height:120px;
+object-fit:contain;
+margin-bottom:10px;
+}
+
+.card-servicio h3{
+color:#003366;
+font-size:18px;
+margin-bottom:8px;
+}
+
+.card-servicio p{
+font-size:14px;
+margin-bottom:12px;
+}
+
+.card-servicio a{
+display:inline-block;
+padding:6px 12px;
+background:#003366;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-size:13px;
+}
+
+/* EFECTO HOVER */
+
+.card-servicio:hover{
+transform:scale(1.05);
+background:#eaf3ff;
+box-shadow:0 8px 18px rgba(0,0,0,0.2);
+}
+/* ================= TRANSPARENCIA ================= */
+
+.transparencia-container{
+display:grid;
+grid-template-columns:1fr 3fr;
+gap:30px;
+margin-top:30px;
+}
+
+.lista-documentos{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.lista-documentos h3{
+color:#003366;
+margin-bottom:15px;
+}
+
+.lista-documentos a{
+display:block;
+padding:8px;
+margin-bottom:6px;
+background:#f4f6f9;
+border-radius:6px;
+text-decoration:none;
+color:#003366;
+font-size:14px;
+}
+
+.lista-documentos a:hover{
+background:#e8f0ff;
+}
+
+.visor-pdf{
+background:white;
+padding:10px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.visor-pdf iframe{
+width:100%;
+height:600px;
+border:none;
+border-radius:8px;
+}
+/* ================= SERVICIOS ================= */
+
+.servicios-container{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:30px;
+
+}
+
+.servicio-card{
+
+width:250px;
+
+background:white;
+
+padding:20px;
+
+border-radius:10px;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+
+text-align:center;
+
+transition:0.3s;
+
+}
+
+.servicio-card:hover{
+
+transform:scale(1.05);
+
+background:#f0f8ff;
+
+}
+
+.icono{
+
+font-size:40px;
+
+margin-bottom:10px;
+
+}
+
+.servicio-card h3{
+
+margin-bottom:10px;
+
+color:#333;
+
+}
+
+.servicio-card p{
+
+font-size:14px;
+
+color:#555;
+
+margin-bottom:15px;
+
+}
+
+.servicio-card button{
+
+background:#007bff;
+
+color:white;
+
+border:none;
+
+padding:8px 15px;
+
+border-radius:5px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.servicio-card button:hover{
+
+background:#0056b3;
+
+}
+
+.texto-servicios{
+
+text-align:center;
+
+max-width:700px;
+
+margin:auto;
+
+color:#555;
+
+margin-top:10px;
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">
+<img src="escudo.png">
+</div>
+<div class="info-header">
+<h1>Municipalidad Distrital de Chalcos</h1>
+<div class="frase">Un gobierno juntos por el desarrollo....!!!</div>
+</div>
+<div class="header-links">
+    <a href="libro.html" class="header-btn">
+        <img src="libro.png" alt="Libro de Reclamaciones">
+    </a>
+    <a href="portal.html" class="header-btn">
+        <img src="portal.png" alt="Portal de Transparencia">
+    </a>
+</div>
+</header>
+
+<nav>
+<a class="activo" onclick="mostrarSeccion('inicio', this)">Inicio</a>
+<a onclick="mostrarSeccion('nosotros', this)">Nosotros</a>
+<a onclick="mostrarSeccion('autoridades', this)">Autoridades</a>
+<a onclick="mostrarSeccion('transparencia', this)">Transparencia</a>
+<a onclick="mostrarSeccion('servicios', this)">Servicios</a>
+<a onclick="mostrarSeccion('noticias', this)">Noticias</a>
+<a onclick="mostrarSeccion('contactos', this)">Contactos</a>
+</nav>
+
+<!-- INICIO (NO TOCADO) -->
+<div id="inicio" class="seccion" style="display:block;">
+<div class="slider">
+<div class="slides">
+<img src="chalcos.jpg">
+<img src="obras.jpg">
+<img src="seguridad.jpg">
+<img src="salud.jpg">
+</div>
+</div>
+</div>
+
+<!-- NOSOTROS (COMPLETADO) -->
+<div id="nosotros" class="seccion">
+<h2>Nosotros</h2>
+
+<div class="nosotros-container">
+
+<div class="nosotros-imagenes">
+<img src="mensaje alcalde.jpg">
+<img src="chalcos pie de pagina.jpg">
+</div>
+
+<div class="nosotros-info">
+<p>El distrito de Chalcos fue creado oficialmente el 3 de abril de 1928.</p>
+<p>Se encuentra ubicado a 3,649 m.s.n.m. en la provincia de Sucre, Ayacucho.</p>
+<p>Destaca por su producción agrícola, especialmente la tuna, papa y otros productos andinos.</p>
+<p>Su población mantiene vivas sus tradiciones culturales, festividades patronales y costumbres ancestrales que fortalecen la identidad del distrito.</p>
+<p>La Municipalidad Distrital de Chalcos trabaja de manera articulada con las comunidades campesinas para promover el desarrollo sostenible, mejorar los servicios básicos y ejecutar proyectos de impacto social.</p>
+<p>Nuestra gestión está comprometida con la transparencia, la participación ciudadana y el progreso integral del distrito.</p>
+</div>
+</div> <!-- cierre nosotros-container -->
+
+<!-- TARJETAS MISION VISION VALORES -->
+<div class="mvv-container">
+
+<div class="mvv-card">
+<img src="mision.jpeg">
+<h3>Misión</h3>
+<p>
+Promover el desarrollo humano integral del distrito mediante la participación ciudadana, la ejecución de programas y el impulso de proyectos de inversión pública, privada y de cooperación internacional que contribuyan a reducir la pobreza y mejorar la calidad de vida de la población.
+</p>
+</div>
+
+<div class="mvv-card">
+<img src="vision.jpeg">
+<h3>Visión</h3>
+<p>
+Ser una municipalidad eficiente y eficaz que promueve la participación ciudadana, atiende las demandas de la población e impulsa la competitividad y la inversión para lograr el desarrollo socioeconómico integral y sostenible del distrito.
+</p>
+</div>
+
+<div class="mvv-card">
+<img src="valores.jpeg">
+<h3>Valores</h3>
+<p>
+Son valores a practicar en la Municipalidad Distrital de Chalcos: puntualidad, honestidad, tolerancia, solidaridad, transparencia y democracia participativa.
+</p>
+
+</div>
+</div>
+</div>
+
+<!-- AUTORIDADES -->
+<div id="autoridades" class="seccion">
+<h2>Autoridades Municipales 2023 - 2026</h2>
+
+<div class="autoridades-contenedor">
+
+    <!-- ALCALDE -->
+    <div class="autoridad-card alternado">
+        <img src="alcalde 2.0.png">
+        <div class="autoridad-info">
+            <h3>Ing. Efraín Alfaro Mendivel</h3>
+            <p>Alcalde del distrito de Chalcos para el periodo 2023-2026.</p>
+            <p>Su gestión se enfoca en el desarrollo agrario, la ejecución de proyectos de infraestructura y la participación comunitaria junto a su plana de regidores y equipo técnico.</p>
+            <p>Promueve el trabajo conjunto con las comunidades del distrito.</p>
+        </div>
+    </div>
+
+    <!-- CONSEJO -->
+    <div class="autoridad-card alternado reverso">
+        <img src="consejo.png">
+        <div class="autoridad-info">
+            <h3>Consejo Municipal</h3>
+            <p>El Consejo Municipal acompaña la gestión impulsando el trabajo coordinado con la población.</p>
+            <p>Se han establecido alianzas provinciales con la alcaldía provincial de Sucre.</p>
+            <p>La gestión mantiene compromiso social y cercanía con las comunidades como Pamparca.</p>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</div>
+</div>   <!-- aquí termina la sección anterior -->
+
+<!-- ================= TRANSPARENCIA ================= -->
+
+<div id="transparencia" class="seccion">
+
+<h2>Portal de Transparencia</h2>
+
+<div class="transparencia-container">
+
+<!-- LISTA DE DOCUMENTOS -->
+
+<div class="lista-documentos">
+
+<h3>Documentos Públicos</h3>
+
+<a onclick="cargarPDF('pdf/organigrama mdch.pdf')">Organigrama Institucional</a>
+
+<a onclick="cargarPDF('pdf/presupuesto2026.pdf')">Presupuesto Institucional</a>
+
+<a onclick="cargarPDF('pdf/plan-desarrollo.pdf')">Plan de Desarrollo</a>
+
+<a onclick="cargarPDF('pdf/rendicion-cuentas.pdf')">Rendición de Cuentas</a>
+
+<a onclick="cargarPDF('pdf/ordenanza.pdf')">Ordenanza Municipal</a>
+
+<a onclick="cargarPDF('pdf/memoria.pdf')">Memoria Institucional</a>
+
+</div>
+
+<!-- VISOR PDF -->
+
+<div class="visor-pdf">
+
+<iframe id="visorPDF" src=""></iframe>
+
+</div>
+
+</div>
+
+</div>
+<!-- ================= SERVICIOS ================= -->
+
+<div id="servicios" class="seccion">
+
+<h2>Servicios Municipales</h2>
+
+<p class="texto-servicios">
+La Municipalidad pone a disposición de los ciudadanos diversos servicios
+destinados a facilitar trámites y mejorar la atención a la población.
+</p>
+
+<div class="servicios-container">
+
+<!-- Servicio 1 -->
+
+<div class="servicio-card">
+
+<div class="icono">📄</div>
+
+<h3>Licencia de Funcionamiento</h3>
+
+<p>
+Permite obtener la autorización municipal para abrir un negocio dentro del distrito.
+</p>
+
+<button>Más información</button>
+
+</div>
+
+<!-- Servicio 2 -->
+
+<div class="servicio-card">
+
+<div class="icono">🏠</div>
+
+<h3>Constancia de Domicilio</h3>
+
+<p>
+Documento que certifica que una persona reside dentro del distrito.
+</p>
+
+<button>Más información</button>
+
+</div>
+
+<!-- Servicio 3 -->
+
+<div class="servicio-card">
+
+<div class="icono">💻</div>
+
+<h3>Mesa de Partes Virtual</h3>
+
+<p>
+Presenta documentos, solicitudes o trámites de manera virtual desde cualquier lugar.
+</p>
+
+<button onclick="window.open('https://facilita.gob.pe/t/34404','_blank')">
+Ingresar
+</button>
+
+</div>
+
+<!-- Servicio 4 -->
+
+<div class="servicio-card">
+
+<div class="icono">🏗</div>
+
+<h3>Licencia de Construcción</h3>
+
+<p>
+Permiso municipal necesario para realizar obras o ampliaciones en viviendas o negocios.
+</p>
+
+<button>Más información</button>
+
+</div>
+
+<!-- Servicio 5 -->
+
+<div class="servicio-card">
+
+<div class="icono">💰</div>
+
+<h3>Pago de Impuestos</h3>
+
+<p>
+Consulta y realiza el pago de impuestos y arbitrios municipales.
+</p>
+
+<button>Más información</button>
+
+</div>
+
+<!-- Servicio 6 -->
+
+<div class="servicio-card">
+
+<div class="icono">💍</div>
+
+<h3>Registro Civil</h3>
+
+<p>
+Trámites relacionados con nacimientos, matrimonios y defunciones.
+</p>
+
+<button>Más información</button>
+
+</div>
+
+</div>
+
+</div>
+<!-- 👇 PEGA AQUÍ LA SECCIÓN NOTICIAS 👇 -->
+<!-- ================= SECCIÓN NOTICIAS ================= -->
+<div id="noticias" class="seccion">
+    <h2 class="titulo-seccion">Noticias</h2>
+
+    <div class="contenedor-noticias">
+
+        <!-- Noticia 1 -->
+        <div class="noticia-card">
+            <img src="sello 1.jpg" alt="Noticia 1">
+            <div class="noticia-info">
+                <h3>Actividad Municipal</h3>
+                <p>Con gran participación de la población se desarrolló una importante actividad en beneficio del distrito.</p>
+                <a href="https://www.facebook.com/share/p/1CcbxNmJnk/" target="_blank">
+                    Ver publicación
+                </a>
+            </div>
+        </div>
+
+        <!-- Noticia 2 -->
+        <div class="noticia-card">
+            <img src="segundo 2.jpg" alt="Noticia 2">
+            <div class="noticia-info">
+                <h3>Gestión y Desarrollo</h3>
+                <p>La municipalidad continúa impulsando proyectos que fortalecen el crecimiento local.</p>
+                <a href="https://www.facebook.com/share/p/1DhiiZTkZt/" target="_blank">
+                    Ver publicación
+                </a>
+            </div>
+        </div>
+
+        <!-- Noticia 3 -->
+        <div class="noticia-card">
+            <img src="vial 3.jpg" alt="Noticia 3">
+            <div class="noticia-info">
+                <h3>Trabajo en Equipo</h3>
+                <p>Autoridades y vecinos coordinan acciones para mejorar los servicios del distrito.</p>
+                <a href="https://www.facebook.com/share/p/1CCytjwuTB/" target="_blank">
+                    Ver publicación
+                </a>
+            </div>
+        </div>
+
+        <!-- Noticia 4 -->
+        <div class="noticia-card">
+            <img src="logro 4.jpg" alt="Noticia 4">
+            <div class="noticia-info">
+                <h3>Compromiso Social</h3>
+                <p>Se desarrollaron actividades orientadas al bienestar de la comunidad.</p>
+                <a href="https://www.facebook.com/share/p/1AZnD86ANj/" target="_blank">
+                    Ver publicación
+                </a>
+            </div>
+        </div>
+
+        <!-- Noticia 5 -->
+        <div class="noticia-card">
+            <img src="clausura 5.jpg" alt="Noticia 5">
+            <div class="noticia-info">
+                <h3>Obras en Ejecución</h3>
+                <p>Avanzan los trabajos programados en diferentes sectores del distrito.</p>
+                <a href="https://www.facebook.com/share/p/1DcVPMJJW7/" target="_blank">
+                    Ver publicación
+                </a>
+            </div>
+        </div>
+
+        <!-- Noticia 6 -->
+        <div class="noticia-card">
+            <img src="prensa 6.jpg" alt="Noticia 6">
+            <div class="noticia-info">
+                <h3>Servicios Municipales</h3>
+                <p>La gestión municipal refuerza la atención y mejora continua de los servicios públicos.</p>
+                <a href="https://www.facebook.com/share/p/1CQCeVroAf/" target="_blank">
+                    Ver publicación
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- ================= COMUNICADOS ================= -->
+<div class="comunicados-seccion">
+    <h3 class="subtitulo-noticias">Comunicados Oficiales</h3>
+
+    <div class="contenedor-comunicados">
+
+        <div class="comunicado-card">
+            <h4>Comunicado N° 001-2026</h4>
+            <p>Se informa a la población que el día viernes se realizará mantenimiento del sistema de agua potable.</p>
+            <a href="#" target="_blank">Leer comunicado</a>
+        </div>
+
+        <div class="comunicado-card">
+            <h4>Comunicado N° 002-2026</h4>
+            <p>La municipalidad invita a la población a participar en la jornada de limpieza distrital.</p>
+            <a href="#" target="_blank">Leer comunicado</a>
+        </div>
+
+        <div class="comunicado-card">
+            <h4>Comunicado N° 003-2026</h4>
+            <p>Se comunica la suspensión temporal de atención por actividades internas administrativas.</p>
+            <a href="#" target="_blank">Leer comunicado</a>
+        </div>
+
+    </div>
+</div>
+<div>
+<!-- ================= FIN COMUNICADOS ================= -->
+<!-- ================= FIN NOTICIAS ================= -->
+
+ <!-- ================= CONTACTOS ================= -->
+<div id="contactos" class="seccion">
+<h2>Contactos</h2>
+
+<!-- TARJETAS SERVICIOS -->
+<div class="servicios-contactos">
+
+<div class="card-servicio">
+<img src="sos.jpg" alt="Seguridad Ciudadana">
+<h3>Seguridad Ciudadana</h3>
+<p>Comunícate con el servicio de serenazgo ante cualquier emergencia en el distrito.</p>
+<a href="#">Contactar</a>
+</div>
+
+<div class="card-servicio">
+<img src="virtual.jpg" alt="Mesa de Partes Virtual">
+<h3>Mesa de Partes Virtual</h3>
+<p>Presenta tus documentos y solicitudes de forma virtual.</p>
+<a href="https://facilita.gob.pe/t/34404" target="_blank">Ingresar</a>
+</div>
+</div> <!-- CIERRE servicios-contactos -->
+
+<!-- INFORMACION + MAPA -->
+<div class="contactos-container">
+
+<div class="contacto-info">
+
+<h3>Municipalidad Distrital de Chalcos</h3>
+
+<p><b>Dirección:</b> Plaza Principal de Chalcos s/n</p>
+
+<p><b>Teléfono:</b> 990223527</p>
+
+<p><b>Correo:</b> muni_chalcos@hotmail.com</p>
+
+<p><b>Horario de Atención:</b><br>
+Lunes a Viernes<br>
+8:00 a 13:00 hrs – 14:00 a 18:00 hrs
+</p>
+
+</div>
+
+<div class="mapa">
+<iframe 
+src="https://www.google.com/maps?q=Chalcos+Ayacucho&output=embed"
+width="100%" 
+height="350" 
+style="border:0;" 
+allowfullscreen="" 
+loading="lazy">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PIE DE PAGINA -->
+<footer>
+<div class="footer-container">
+<div class="footer-left">
+<img src="chalcos pie de pagina.jpg">
+</div>
+
+<div class="footer-right">
+<div>Plaza Principal de Chalcos s/n</div>
+<div>Horario de Atención:</div>
+<div>Lunes a Viernes<br>8:00 a 13:00 hrs - 14:00 a 18:00 hrs</div>
+<!-- LINK DE FACEBOOK -->
+      <div style="margin-top:10px;">
+        <a href="https://www.facebook.com/profile.php?id=100091828491247" target="_blank" style="display:flex;align-items:center;gap:5px;color:white;text-decoration:none;font-weight:bold;">
+          <img src="fb.png" alt="Facebook" style="width:24px;height:24px;">
+          Facebook
+        </a>
+</div>
+</div>
+
+</footer>
+
+<script>
+function mostrarSeccion(id, elemento){
+let secciones = document.querySelectorAll('.seccion');
+secciones.forEach(sec => sec.style.display = "none");
+document.getElementById(id).style.display = "block";
+
+let enlaces = document.querySelectorAll('nav a');
+enlaces.forEach(link => link.classList.remove('activo'));
+elemento.classList.add('activo');
+}classList
+function cargarPDF(ruta){
+document.getElementById("visorPDF").src = ruta;
+}
+</script>
+
+</body>
+</html>
